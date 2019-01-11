@@ -33,9 +33,8 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
 *  Tests in Parallel:
     ```$ py.test -s -n 2 tests```
 
-* Dump session ids for the SauceLabs CI plugins:
-    ```$ cat $(find . -name "*.testlog")```
-
+* Run regression tests
+    ```$export PERF_USERNAME=performance_glitch_user py.test -s -n 2 tests```
 
 [Sauce Labs Dashboard](https://saucelabs.com/beta/dashboard/)
 
@@ -43,10 +42,3 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
 
 There may be additional latency when using a remote webdriver to run tests on Sauce Labs. Timeouts or Waits may need to be increased.
     * [Selenium tips regarding explicit waits](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Explicit+Waits)
-
-### Known Issues:
-* Test output will be captured in .testlog files as the pytest-xdist plugin has issues with not capturing stdout and stderr. You can use the following commands to output session id's for CI integration and clean up.
-```
-$ cat *.testlog
-$ rm -rf *.testlog
-```

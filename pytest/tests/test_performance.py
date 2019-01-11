@@ -8,7 +8,7 @@ class TestPerformance:
     def setUpClass(self, driver):
         driver.get("https://www.saucedemo.com")
         driver.find_element_by_css_selector("[data-test='username']").send_keys(
-            environ.get("PERF_USERNAME", "standard_user"), "standard_user")
+            environ.get("PERF_USERNAME", "standard_user"))
         driver.find_element_by_css_selector("[data-test='password']").send_keys("secret_sauce")
         driver.find_element_by_class_name("login-button").click()
         driver.get("https://www.saucedemo.com/inventory.html")
