@@ -1,5 +1,4 @@
 import pytest
-import time
 from os import environ
 
 
