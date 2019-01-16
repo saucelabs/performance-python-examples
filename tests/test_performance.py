@@ -15,7 +15,6 @@ class TestPerformance:
     def test_main_js(self, driver):
         self.setUpClass(driver)
         network = driver.execute_script("sauce:log", {"type": "sauce:network"})
-        # is_request_exists = network.some(req.url.includes("main.js"))
         is_request_exists = False
         for x in network:
             if "main.js" in x["url"]:
