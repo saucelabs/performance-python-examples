@@ -43,5 +43,5 @@ class TestPerformance:
 
     def test_performance(self, driver, request):
         self.setUpClass(driver)
-        performance = driver.execute_script("sauce:performance", {"name": request.node.name})
+        performance = driver.execute_script("sauce:performance", {"name": request.node.name, "metrics": ["load"]})
         assert performance is True
