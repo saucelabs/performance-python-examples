@@ -41,7 +41,7 @@ class TestPerformance:
         for metric in metrics:
             assert metric in performance
 
-    def test_hello(self, driver, request):
+    def test_performance(self, driver, request):
         self.setUpClass(driver)
-        hello = driver.execute_script("sauce:hello", {"name": request.node.name })
-        assert request.node.name in hello
+        performance = driver.execute_script("sauce:performance", {"name": request.node.name})
+        assert performance is True
