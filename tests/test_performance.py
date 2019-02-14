@@ -44,10 +44,10 @@ class TestPerformance:
     def test_performance_page_weight(self, driver, request):
         self.setUpClass(driver)
         performance = driver.execute_script("sauce:performance", {"name": request.node.name, "metrics": ["pageWeight"]})
-        assert performance is True
+        assert performance["result"] == "pass"
 
     def test_performance_page_load(self, driver, request):
         self.setUpClass(driver)
         performance = driver.execute_script("sauce:performance", {"name": request.node.name, "metrics": ["load"]})
-        assert performance is True
+        assert performance["result"] == "pass"
     
