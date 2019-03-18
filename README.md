@@ -31,7 +31,7 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
 ### Running Tests:  -n option designates number of parallel tests and -s to disable output capture.
 
 *  Run tests:
-    ```$ py.test -s tests```
+    ```$ `py.test -s tests````
 
 * Run regression tests
     ```$ export PERF_USERNAME=performance_glitch_user py.test -s tests```
