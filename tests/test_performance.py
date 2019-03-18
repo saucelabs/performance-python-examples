@@ -26,7 +26,7 @@ class TestPerformance:
         else:
             assert performance["result"] == "pass"
 
-    def test_performance_speed_index(self, driver, request):
+    def test_performance_timeToFirstInteractive(self, driver, request):
         self.setUpClass(driver)
         performance = driver.execute_script("sauce:performance", {
                                             "name": request.node.name, "metrics": ["timeToFirstInteractive"]})
