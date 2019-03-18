@@ -34,5 +34,3 @@ class TestPerformance:
             assert performance["details"]["timeToFirstInteractive"]["actual "] < 5000
         else:
             assert performance["result"] == "pass"
-
-    
