@@ -16,7 +16,8 @@ def driver(request):
         "platform": "Windows 10",
         "browserName": "chrome",
         "version": "latest",
-        "extendedDebugging": True
+        "extendedDebugging": True,
+        "capturePerformance": True,
     }
 
     desired_caps.update(browser)
