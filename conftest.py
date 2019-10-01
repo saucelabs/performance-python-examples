@@ -11,13 +11,16 @@ def driver(request):
     # if the assignment below does not make sense to you please read up on object assignments.
     # The point is to make a copy and not mess with the original test spec.
     desired_caps = {}
-    
+
     browser = {
-        "platform": "Windows 10",
+        "platformName": "Windows 10",
         "browserName": "chrome",
-        "version": "latest",
-        "extendedDebugging": True,
-        "capturePerformance": True,
+        "browserVersion": "latest",
+        "sauce:options": {
+            "extendedDebugging": True,
+            "capturePerformance": True,
+            "name": request.node.name,
+        }
     }
 
     desired_caps.update(browser)

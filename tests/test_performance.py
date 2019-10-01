@@ -13,7 +13,8 @@ class TestPerformance:
 
     def test_performance_page_weight(self, driver, request):
         self.setUpClass(driver)
-        performance = driver.execute_script("sauce:performance", {"name": request.node.name, "metrics": ["load"]})
+        performance = driver.execute_script("sauce:performance", {
+                                            "name": request.node.name, "metrics": ["load"]})
         '''
         The custom command will return 'pass' if the test falls within the predicted baseline
 	    or 'fail'  if the performance metric falls outside the predicted baseline.
@@ -22,6 +23,10 @@ class TestPerformance:
         assert(details[metric].actual < 5000, true, reason);
         '''
         if(performance["result"] != "pass"):
+            '''
+            If metric is not within baseline, only fail if it is above
+            our performance budget of 5s
+            '''
             assert performance["details"]["load"]["actual "] < 5000
         else:
             assert performance["result"] == "pass"
