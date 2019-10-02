@@ -19,6 +19,8 @@ def driver(request):
         "sauce:options": {
             "extendedDebugging": True,
             "capturePerformance": True,
+            # use latest internal Sauce driver
+            "crmuxdriverVersion": "beta",
             "name": request.node.name,
         }
     }
