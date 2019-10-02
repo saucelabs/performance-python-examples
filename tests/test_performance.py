@@ -31,11 +31,11 @@ class TestPerformance:
         else:
             assert performance["result"] == "pass"
 
-    def test_performance_timeToFirstInteractive(self, driver, request):
+    def test_performance_firstInteractive(self, driver, request):
         self.setUpClass(driver)
         performance = driver.execute_script("sauce:performance", {
-                                            "name": request.node.name, "metrics": ["timeToFirstInteractive"]})
+                                            "name": request.node.name, "metrics": ["firstInteractive"]})
         if(performance["result"] != "pass"):
-            assert performance["details"]["timeToFirstInteractive"]["actual "] < 5000
+            assert performance["details"]["firstInteractive"]["actual "] < 5000
         else:
             assert performance["result"] == "pass"
